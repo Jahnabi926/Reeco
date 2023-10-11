@@ -5,17 +5,23 @@ import Navbar from "./components/Navbar";
 import styled from "styled-components";
 
 const IMG = styled.img`
-width: 50px;
-backgroundColor: rgba(255, 255, 255, 0.2);`
+  width: 50px;
+`;
 
 console.log(mockData);
 const App = () => {
   const data = React.useMemo(() => mockData, []);
   const columns = React.useMemo(
     () => [
-      { Header: "", accessor: "icon", Cell: ({cell: {value}}) => (
-        <div><IMG src={require("./images/" + value)} alt={value}/></div>
-      ) },
+      {
+        Header: "",
+        accessor: "icon",
+        Cell: ({ cell: { value } }) => (
+          <div>
+            <IMG src={require("./images/" + value)} alt={value} />
+          </div>
+        ),
+      },
       { Header: "Product name", accessor: "product_name" },
       { Header: "Brand", accessor: "brand" },
       { Header: "Price", accessor: "price" },
