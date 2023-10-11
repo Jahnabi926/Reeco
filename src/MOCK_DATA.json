@@ -7,7 +7,10 @@
         "price": 200,
         "quantity": 6,
         "total": 0,
-        "status": "none"
+        "status": "none",
+        "approve": "check.png",
+        "missing": "cross.png",
+        "edit": "Edit"
     },
     {
         "id": 2,
@@ -17,7 +20,10 @@
         "price": 250,
         "quantity": 4,
         "total": 0,
-        "status": "none"
+        "status": "none",
+        "approve": "check.png",
+        "missing": "cross.png",
+        "edit": "Edit"
     },
     {
         "id": 3,
@@ -27,7 +33,10 @@
         "price": 150,
         "quantity": 12,
         "total": 0,
-        "status": "none"
+        "status": "none",
+        "approve": "check.png",
+        "missing": "cross.png",
+        "edit": "Edit"
     },
     {
         "id": 4,
@@ -37,7 +46,10 @@
         "price": 300,
         "quantity": 5,
         "total": 0,
-        "status": "none"
+        "status": "none",
+        "approve": "check.png",
+        "missing": "cross.png",
+        "edit": "Edit"
     },
     {
         "id": 5,
@@ -47,7 +59,10 @@
         "price": 500,
         "quantity": 3,
         "total": 0,
-        "status": "none"
+        "status": "none",
+        "approve": "check.png",
+        "missing": "cross.png",
+        "edit": "Edit"
     },
     {
         "id": 6,
@@ -57,6 +72,9 @@
         "price": 400,
         "quantity": 4,
         "total": 0,
-        "status": "none"
+        "status": "none",
+        "approve": "check.png",
+        "missing": "cross.png",
+        "edit": "Edit"
     }
 ]
