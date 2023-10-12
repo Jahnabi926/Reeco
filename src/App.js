@@ -14,7 +14,7 @@ const ButtonImg = styled.img`
 `;
 
 console.log(mockData);
-const App = (props) => {
+const App = () => {
   const colors = useSelector((state) => state.colors);
   const dispatch = useDispatch();
 
@@ -51,7 +51,7 @@ const App = (props) => {
         Header: "",
         accessor: "approve",
         Cell: ({ cell }) => {
-          const id = cell.row.values.id;
+          const id = cell.row.id;
           const approveImage = require("./images/" + cell.row.values.approve);
           return (
             <div>
@@ -66,7 +66,7 @@ const App = (props) => {
         Header: "",
         accessor: "missing",
         Cell: ({ cell }) => {
-          const id = cell.row.values.id;
+          const id = cell.row.id;
           const missingImage = require("./images/" + cell.row.values.missing);
           return (
             <div>

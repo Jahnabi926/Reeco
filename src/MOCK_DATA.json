@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "icon": "apple.png",
         "product_name": "Apple",
         "brand": "Farm fresh",
@@ -17,7 +17,7 @@
         }
     },
     {
-        "id": 2,
+        "id": 1,
         "icon": "avocado.jpg",
         "product_name": "Mango",
         "brand": "Daily fresh",
@@ -34,7 +34,7 @@
         }
     },
     {
-        "id": 3,
+        "id": 2,
         "icon": "apple.png",
         "product_name": "Banana",
         "brand": "Daily fresh",
@@ -51,7 +51,7 @@
         }
     },
     {
-        "id": 4,
+        "id": 3,
         "icon": "avocado.jpg",
         "product_name": "Orange",
         "brand": "Farm fresh",
@@ -68,7 +68,7 @@
         }
     },
     {
-        "id": 5,
+        "id": 4,
         "icon": "apple.png",
         "product_name": "Avocado",
         "brand": "Exotic",
@@ -85,7 +85,7 @@
         }
     },
     {
-        "id": 6,
+        "id": 5,
         "icon": "avocado.jpg",
         "product_name": "Kiwi",
         "brand": "Exotic",
