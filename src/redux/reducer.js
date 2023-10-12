@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
         case "APPROVE_PRODUCT": 
         return {
             ...state,
-            data: state.data.map((item) => {
+            data: state.map((item) => {
                 if(item.id === action.payload.id) {
                     return {
                         ...item,
@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
         case "REJECT_PRODUCT": 
         return {
             ...state,
-            data: state.data.map((item) => {
+            data: state.map((item) => {
                 if(item.id === action.payload.id) {
                     return {
                         ...item,

@@ -3,6 +3,8 @@ import mockData from "./MOCK_DATA.json";
 import Table from "./components/Table";
 import Navbar from "./components/Navbar";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { approveProduct, rejectProduct } from "../redux/actions";
 
 const IMG = styled.img`
   width: 40px;
@@ -13,6 +15,17 @@ const ButtonImg = styled.img`
 
 console.log(mockData);
 const App = (props) => {
+  const colors = useSelector((state) => state.colors);
+  const dispatch = useDispatch();
+
+  const handleProductApproval = (id) => {
+    dispatch(approveProduct(id));
+  };
+
+  const handleProductMissing = (id) => {
+    dispatch(rejectProduct(id));
+  };
+
   const data = React.useMemo(() => mockData, []);
   const columns = React.useMemo(
     () => [
@@ -37,24 +50,32 @@ const App = (props) => {
       {
         Header: "",
         accessor: "approve",
-        Cell: ({ cell: { value } }) => (
-          <div>
-            <button value={data.approve} onClick={props.handleProductApproval}>
-              <ButtonImg src={require("./images/" + value)} alt={value} />
-            </button>
-          </div>
-        ),
+        Cell: ({ cell }) => {
+          const id = cell.row.values.id;
+          const approveImage = require("./images/" + cell.row.values.approve);
+          return (
+            <div>
+              <button value={id} onClick={() => handleProductApproval(id)}>
+                <ButtonImg src={approveImage} alt={cell.row.values.approve} />
+              </button>
+            </div>
+          );
+        },
       },
       {
         Header: "",
         accessor: "missing",
-        Cell: ({ cell: { value } }) => (
-          <div>
-            <button value={data.missing} onClick={props.handleProductMissing}>
-              <ButtonImg src={require("./images/" + value)} alt={value} />
-            </button>
-          </div>
-        ),
+        Cell: ({ cell }) => {
+          const id = cell.row.values.id;
+          const missingImage = require("./images/" + cell.row.values.missing);
+          return (
+            <div>
+              <button value={id} onClick={() => handleProductMissing(id)}>
+                <ButtonImg src={missingImage} alt={cell.row.values.missing} />
+              </button>
+            </div>
+          );
+        },
       },
       {
         Header: "",
@@ -68,6 +89,7 @@ const App = (props) => {
     ],
     []
   );
+
   return (
     <div className="container">
       <Navbar />

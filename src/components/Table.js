@@ -1,23 +1,14 @@
 import { useTable } from "react-table";
-import { useSelector, useDispatch } from "react-redux";
-import { approveProduct, rejectProduct } from "../redux/actions";
 
-const Table = ({ columns, data }) => {
+const Table = ({
+  columns,
+  data,
+}) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
       data,
     });
-  const colors = useSelector((state) => state.colors);
-  const dispatch = useDispatch();
-
-  const handleProductApproval = (id) => {
-    dispatch(approveProduct(id));
-  };
-
-  const handleProductMissing = (id) => {
-    dispatch(rejectProduct(id));
-  };
 
   return (
     <table {...getTableProps()}>
