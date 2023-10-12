@@ -1,5 +1,4 @@
 import React from "react";
-import mockData from "./MOCK_DATA.json";
 import Table from "./components/Table";
 import Navbar from "./components/Navbar";
 import styled from "styled-components";
@@ -13,12 +12,14 @@ const ButtonImg = styled.img`
   width: 20px;
 `;
 
-const Status = ({ status }) => {
-  return <p>{status}</p>;
+const Status = ({ status, colors }) => {
+  const backgroundColor = status === "Approved" ? colors.check : colors.cross;
+
+  return <p style={{ backgroundColor }}>{status}</p>;
 };
 
 const App = () => {
-  const colors = useSelector((state) => state.colors);
+  const tableData = useSelector((state) => state.reducer);
 
   const dispatch = useDispatch();
 
@@ -30,7 +31,6 @@ const App = () => {
     dispatch(rejectProduct(id));
   };
 
-  const data = React.useMemo(() => mockData, []);
   const columns = React.useMemo(
     () => [
       {
@@ -51,9 +51,12 @@ const App = () => {
         Header: "Status",
         accessor: "status",
         Cell: ({ cell }) => {
-          const status = useSelector((state) => state.status);
-
-          return <Status status={status} />;
+          return (
+            <Status
+              status={cell.row.values.status}
+              colors={cell.row.values.colors}
+            />
+          );
         },
       },
       {
@@ -102,7 +105,7 @@ const App = () => {
   return (
     <div className="container">
       <Navbar />
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={tableData.data} />
     </div>
   );
 };
