@@ -13,9 +13,13 @@ const ButtonImg = styled.img`
   width: 20px;
 `;
 
-console.log(mockData);
+const Status = ({ status }) => {
+  return <p>{status}</p>;
+};
+
 const App = () => {
   const colors = useSelector((state) => state.colors);
+
   const dispatch = useDispatch();
 
   const handleProductApproval = (id) => {
@@ -46,6 +50,11 @@ const App = () => {
       {
         Header: "Status",
         accessor: "status",
+        Cell: ({ cell }) => {
+          const status = useSelector((state) => state.status);
+
+          return <Status status={status} />;
+        },
       },
       {
         Header: "",

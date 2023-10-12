@@ -10,7 +10,8 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             data: state.data.map((item) => {
-                if(item.id === action.payload.id) {
+                // eslint-disable-next-line eqeqeq
+                if(item.id == action.payload.id) {
                     return {
                         ...item,
                         status: "Approved"
@@ -23,10 +24,11 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             data: state.data.map((item) => {
-                if(item.id === action.payload.id) {
+                // eslint-disable-next-line eqeqeq
+                if(item.id == action.payload.id) {
                     return {
                         ...item,
-                        status: "Missing Product",
+                        status: "Missing",
                     }
                 }
                 return item;
