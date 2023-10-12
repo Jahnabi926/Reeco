@@ -4,7 +4,7 @@ import Table from "./components/Table";
 import Navbar from "./components/Navbar";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { approveProduct, rejectProduct } from "../redux/actions";
+import { approveProduct, rejectProduct } from "../src/redux/actions";
 
 const IMG = styled.img`
   width: 40px;
