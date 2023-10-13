@@ -1,9 +1,6 @@
 import { useTable } from "react-table";
 
-const Table = ({
-  columns,
-  data,
-}) => {
+const Table = ({ columns, data }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
