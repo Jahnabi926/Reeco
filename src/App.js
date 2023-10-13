@@ -6,18 +6,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { approveProduct, rejectProduct } from "../src/redux/actions";
 
 const IMG = styled.img`
-  width: 40px;
+  width: 45px;
 `;
 const ButtonImg = styled.img`
   width: 20px;
 `;
-
 const Status = ({ status }) => {
-  console.log("Status Component - status:", status, );
-
-  const color = status === "Approved" ? "green" : "red";
-
-  return <p style={{ color }}>{status}</p>;
+  const backgroundColor = status === "Approved" ? "green" : "red";
+  return <span style={{ backgroundColor }}>{status}</span>;
 };
 
 const App = () => {
@@ -53,11 +49,7 @@ const App = () => {
         Header: "Status",
         accessor: "status",
         Cell: ({ cell }) => {
-          return (
-            <Status
-              status={cell.row.values.status}
-            />
-          );
+          return <Status status={cell.row.values.status} />;
         },
       },
       {

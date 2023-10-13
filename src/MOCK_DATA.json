@@ -14,7 +14,7 @@
     },
     {
         "id": 1,
-        "icon": "avocado.jpg",
+        "icon": "avocado.png",
         "product_name": "Mango",
         "brand": "Daily fresh",
         "price": 250,
@@ -40,7 +40,7 @@
     },
     {
         "id": 3,
-        "icon": "avocado.jpg",
+        "icon": "avocado.png",
         "product_name": "Orange",
         "brand": "Farm fresh",
         "price": 300,
@@ -66,7 +66,7 @@
     },
     {
         "id": 5,
-        "icon": "avocado.jpg",
+        "icon": "avocado.png",
         "product_name": "Kiwi",
         "brand": "Exotic",
         "price": 400,
