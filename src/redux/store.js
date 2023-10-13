@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import reducer from "./reducer";
+import productTableReducer from "./reducer";
 
 export default configureStore({
   reducer: {
-    reducer: reducer,
+    productTable: productTableReducer,
   },
 });
