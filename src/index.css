@@ -6,42 +6,6 @@ body {
   margin: 0;
   background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
   background: linear-gradient(45deg, #49a09d, #5f2c82);
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 100;
-}
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-height: 500px;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-table {
-  /* max-width: 800px; */
-  height: 500px;
-  border-collapse: collapse;
-  overflow-y: auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-th,
-td {
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-th {
-  text-align: left;
-}
-thead th {
-  background-color: #55608f;
-}
-tbody td {
-  position: relative;
-}
-button {
-  cursor: pointer;
-  background-color: wheat;
-  border: none;
-  border-radius: 4px;
 }

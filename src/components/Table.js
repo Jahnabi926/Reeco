@@ -1,4 +1,5 @@
 import { useTable } from "react-table";
+import { TableStyled, Th, Td } from "./StyledComponents";
 
 const Table = ({ columns, data }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -8,12 +9,12 @@ const Table = ({ columns, data }) => {
     });
 
   return (
-    <table {...getTableProps()}>
+    <TableStyled {...getTableProps()}>
       <thead>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <Th {...column.getHeaderProps()}>{column.render("Header")}</Th>
             ))}
           </tr>
         ))}
@@ -24,13 +25,13 @@ const Table = ({ columns, data }) => {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => (
-                <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>
               ))}
             </tr>
           );
         })}
       </tbody>
-    </table>
+    </TableStyled>
   );
 };
 export default Table;

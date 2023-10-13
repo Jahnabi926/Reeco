@@ -1,16 +1,15 @@
 import React from "react";
 import Table from "./components/Table";
 import Navbar from "./components/Navbar";
-import styled from "styled-components";
+import {
+  Container,
+  Img,
+  ButtonImg,
+  Button,
+} from "./components/StyledComponents";
 import { useSelector, useDispatch } from "react-redux";
 import { approveProduct, rejectProduct } from "../src/redux/actions";
 
-const IMG = styled.img`
-  width: 45px;
-`;
-const ButtonImg = styled.img`
-  width: 20px;
-`;
 const Status = ({ status }) => {
   const backgroundColor = status === "Approved" ? "green" : "red";
   return <span style={{ backgroundColor }}>{status}</span>;
@@ -36,7 +35,7 @@ const App = () => {
         accessor: "icon",
         Cell: ({ cell: { value } }) => (
           <div>
-            <IMG src={require("./images/" + value)} alt={value} />
+            <Img src={require("./images/" + value)} alt={value} />
           </div>
         ),
       },
@@ -60,9 +59,9 @@ const App = () => {
           const approveImage = require("./images/" + cell.row.values.approve);
           return (
             <div>
-              <button value={id} onClick={() => handleProductApproval(id)}>
+              <Button value={id} onClick={() => handleProductApproval(id)}>
                 <ButtonImg src={approveImage} alt={cell.row.values.approve} />
-              </button>
+              </Button>
             </div>
           );
         },
@@ -75,9 +74,9 @@ const App = () => {
           const missingImage = require("./images/" + cell.row.values.missing);
           return (
             <div>
-              <button value={id} onClick={() => handleProductMissing(id)}>
+              <Button value={id} onClick={() => handleProductMissing(id)}>
                 <ButtonImg src={missingImage} alt={cell.row.values.missing} />
-              </button>
+              </Button>
             </div>
           );
         },
@@ -87,7 +86,7 @@ const App = () => {
         accessor: "edit",
         Cell: ({ cell }) => (
           <div>
-            <button value={cell.row.values.edit}>{cell.row.values.edit}</button>
+            <Button value={cell.row.values.edit}>{cell.row.values.edit}</Button>
           </div>
         ),
       },
@@ -96,10 +95,10 @@ const App = () => {
   );
 
   return (
-    <div className="container">
+    <Container>
       <Navbar />
       <Table columns={columns} data={tableData.data} />
-    </div>
+    </Container>
   );
 };
 export default App;
