@@ -15,10 +15,6 @@ const reducer = (state = initialState, action) => {
             return {
               ...item,
               status: "Approved",
-              colors: {
-                ...item.colors,
-                check: "green",
-              },
             };
           }
           return item;
@@ -33,10 +29,6 @@ const reducer = (state = initialState, action) => {
             return {
               ...item,
               status: "Missing",
-              colors: {
-                ...item.colors,
-                cross: "red",
-              },
             };
           }
           return item;

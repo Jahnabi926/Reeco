@@ -10,11 +10,7 @@
         "status": "",
         "approve": "check.png",
         "missing": "cross.png",
-        "edit": "Edit",
-        "colors": {
-            "check": "green",
-            "cross": "red"
-        }
+        "edit": "Edit"
     },
     {
         "id": 1,
@@ -27,11 +23,7 @@
         "status": "",
         "approve": "check.png",
         "missing": "cross.png",
-        "edit": "Edit",
-        "colors": {
-            "check": "green",
-            "cross": "red"
-        }
+        "edit": "Edit"
     },
     {
         "id": 2,
@@ -44,11 +36,7 @@
         "status": "",
         "approve": "check.png",
         "missing": "cross.png",
-        "edit": "Edit",
-        "colors": {
-            "check": "green",
-            "cross": "red"
-        }
+        "edit": "Edit"
     },
     {
         "id": 3,
@@ -61,11 +49,7 @@
         "status": "",
         "approve": "check.png",
         "missing": "cross.png",
-        "edit": "Edit",
-        "colors": {
-            "check": "green",
-            "cross": "red"
-        }
+        "edit": "Edit"
     },
     {
         "id": 4,
@@ -78,11 +62,7 @@
         "status": "",
         "approve": "check.png",
         "missing": "cross.png",
-        "edit": "Edit",
-        "colors": {
-            "check": "green",
-            "cross": "red"
-        }
+        "edit": "Edit"
     },
     {
         "id": 5,
@@ -95,10 +75,6 @@
         "status": "",
         "approve": "check.png",
         "missing": "cross.png",
-        "edit": "Edit",
-        "colors": {
-            "check": "green",
-            "cross": "red"
-        }
+        "edit": "Edit"
     }
 ]

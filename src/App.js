@@ -12,15 +12,17 @@ const ButtonImg = styled.img`
   width: 20px;
 `;
 
-const Status = ({ status, colors }) => {
-  const backgroundColor = status === "Approved" ? colors.check : colors.cross;
+const Status = ({ status }) => {
+  console.log("Status Component - status:", status, );
 
-  return <p style={{ backgroundColor }}>{status}</p>;
+  const color = status === "Approved" ? "green" : "red";
+
+  return <p style={{ color }}>{status}</p>;
 };
 
 const App = () => {
   const tableData = useSelector((state) => state.reducer);
-
+  console.log("tableData", tableData);
   const dispatch = useDispatch();
 
   const handleProductApproval = (id) => {
@@ -54,7 +56,6 @@ const App = () => {
           return (
             <Status
               status={cell.row.values.status}
-              colors={cell.row.values.colors}
             />
           );
         },
