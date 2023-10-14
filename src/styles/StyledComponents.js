@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const StyledContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -26,15 +26,21 @@ export const Td = styled.td`
   background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
 `;
-export const Button = styled.button`
+export const StyledButton = styled.button`
   cursor: pointer;
   background-color: wheat;
   border: none;
   border-radius: 4px;
 `;
-export const Img = styled.img`
+export const StyledEditButton = styled(StyledButton)`
+  padding: 5px 9px;
+`;
+export const StyledImg = styled.img`
   width: 45px;
 `;
-export const ButtonImg = styled.img`
+export const StyledButtonImg = styled.img`
   width: 20px;
+`;
+export const StyledStatus = styled.div`
+  width: 75px;
 `;

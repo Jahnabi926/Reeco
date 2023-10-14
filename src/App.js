@@ -1,13 +1,12 @@
 import ProductTable from "./components/ProductTable";
-import { Container } from "./styles/StyledComponents";
+import { StyledContainer } from "./styles/StyledComponents";
 
 const App = () => {
   return (
     <>
-      <Container>
+      <StyledContainer>
         <ProductTable />
-        {/* <div>Hello World</div> */}
-      </Container>
+      </StyledContainer>
     </>
   );
 };

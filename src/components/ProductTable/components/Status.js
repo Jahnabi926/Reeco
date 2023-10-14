@@ -1,6 +1,7 @@
+import { StyledStatus } from "../../../styles/StyledComponents";
+
 const Status = ({ status }) => {
-  // const color = status === "Approved" ? "green" : "red";
-  return <div style={{ width: "75px" }}>{status}</div>;
+  return <StyledStatus>{status}</StyledStatus>;
 };
 
 export default Status;

@@ -1,15 +1,14 @@
-import { Img, ButtonImg, Button } from "../../styles/StyledComponents";
 import Status from "./components/Status";
+import ApproveButton from "./components/ApproveButton";
+import Image from "./components/Image";
+import MissingButton from "./components/MissingButton";
+import EditButton from "./components/EditButton";
 
 export const Columns = (handleProductApproval, handleProductMissing) => [
   {
     Header: "",
     accessor: "icon",
-    Cell: ({ cell: { value } }) => (
-      <div>
-        <Img src={require("../../images/" + value)} alt={value} />
-      </div>
-    ),
+    Cell: ({ cell: { value } }) => <Image value={value} />,
   },
   { Header: "Product name", accessor: "product_name" },
   { Header: "Brand", accessor: "brand" },
@@ -27,14 +26,12 @@ export const Columns = (handleProductApproval, handleProductMissing) => [
     Header: "",
     accessor: "approve",
     Cell: ({ cell }) => {
-      const id = cell.row.id;
-      const approveImage = require("../../images/" + cell.row.values.approve);
       return (
-        <div>
-          <Button value={id} onClick={() => handleProductApproval(id)}>
-            <ButtonImg src={approveImage} alt={cell.row.values.approve} />
-          </Button>
-        </div>
+        <ApproveButton
+          id={cell.row.id}
+          handleClick={handleProductApproval}
+          imageValue={cell.row.values.approve}
+        />
       );
     },
   },
@@ -42,24 +39,18 @@ export const Columns = (handleProductApproval, handleProductMissing) => [
     Header: "",
     accessor: "missing",
     Cell: ({ cell }) => {
-      const id = cell.row.id;
-      const missingImage = require("../../images/" + cell.row.values.missing);
       return (
-        <div>
-          <Button value={id} onClick={() => handleProductMissing(id)}>
-            <ButtonImg src={missingImage} alt={cell.row.values.missing} />
-          </Button>
-        </div>
+        <MissingButton
+          id={cell.row.id}
+          handleClick={handleProductMissing}
+          imageValue={cell.row.values.missing}
+        />
       );
     },
   },
-  // {
-  //   Header: "",
-  //   accessor: "edit",
-  //   Cell: ({ cell }) => (
-  //     <div>
-  //       <Button value={cell.row.values.edit}>{cell.row.values.edit}</Button>
-  //     </div>
-  //   ),
-  // },
+  {
+    Header: "",
+    accessor: "edit",
+    Cell: ({ cell }) => <EditButton value={cell.row.values.edit} />,
+  },
 ];
