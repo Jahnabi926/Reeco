@@ -1,5 +1,5 @@
 import { useTable } from "react-table";
-import { TableStyled, Th, Td } from "../styles/StyledComponents";
+import { TableStyled, Th, Td } from "../styles/TableStyledComponents";
 
 const Table = ({ columns, data }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

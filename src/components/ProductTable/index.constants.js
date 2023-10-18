@@ -1,14 +1,14 @@
 import Status from "./components/Status";
 import ApproveButton from "./components/ApproveButton";
-import Image from "./components/Image";
 import MissingButton from "./components/MissingButton";
 import EditButton from "./components/EditButton";
+import { TableImage } from "./components/Images";
 
 export const Columns = (handleProductApproval, handleProductMissing) => [
   {
     Header: "",
     accessor: "icon",
-    Cell: ({ cell: { value } }) => <Image value={value} />,
+    Cell: ({ cell: { value } }) => <TableImage value={value} />,
   },
   { Header: "Product name", accessor: "product_name" },
   { Header: "Brand", accessor: "brand" },
@@ -51,6 +51,8 @@ export const Columns = (handleProductApproval, handleProductMissing) => [
   {
     Header: "",
     accessor: "edit",
-    Cell: ({ cell }) => <EditButton value={cell.row.values.edit} />,
+    Cell: ({ cell }) => (
+      <EditButton value={cell.row.values.edit} product={cell.row.original} />
+    ),
   },
 ];

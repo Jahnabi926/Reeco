@@ -1,4 +1,4 @@
-import { StyledStatus } from "../../../styles/StyledComponents";
+import { StyledStatus } from "../../../styles/TableStyledComponents";
 
 const Status = ({ status }) => {
   return <StyledStatus>{status}</StyledStatus>;

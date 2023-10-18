@@ -1,7 +1,7 @@
 import {
   StyledButtonImg,
   StyledButton,
-} from "../../../styles/StyledComponents";
+} from "../../../styles/TableStyledComponents";
 
 const MissingButton = ({ id, handleClick, imageValue }) => {
   const missingImage = require("../../../images/" + imageValue);

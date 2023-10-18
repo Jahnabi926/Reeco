@@ -5,7 +5,6 @@ import { Columns } from "./index.constants";
 
 const ProductTable = () => {
   const tableData = useSelector((state) => state.productTable);
-  console.log("tableData", tableData);
   const dispatch = useDispatch();
 
   const handleProductApproval = (id) => {

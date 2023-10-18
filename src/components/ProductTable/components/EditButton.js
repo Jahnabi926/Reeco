@@ -1,9 +1,20 @@
-import { StyledEditButton } from "../../../styles/StyledComponents";
+import { StyledEditButton } from "../../../styles/TableStyledComponents";
+import { showModal, selectProduct } from "../../../redux/actions";
+import { useDispatch } from "react-redux";
 
-const EditButton = ({ value }) => {
+const EditButton = ({ value, product }) => {
+  const dispatch = useDispatch();
+
+  const onEditButtonClick = () => {
+    dispatch(selectProduct(product));
+    dispatch(showModal());
+  };
+
   return (
     <div>
-      <StyledEditButton value={value}>{value}</StyledEditButton>
+      <StyledEditButton value={value} onClick={onEditButtonClick}>
+        {value}
+      </StyledEditButton>
     </div>
   );
 };

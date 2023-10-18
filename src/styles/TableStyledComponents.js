@@ -36,7 +36,7 @@ export const StyledEditButton = styled(StyledButton)`
   padding: 5px 9px;
 `;
 export const StyledImg = styled.img`
-  width: 45px;
+  max-width: 45px;
 `;
 export const StyledButtonImg = styled.img`
   width: 20px;

@@ -1,7 +1,7 @@
 import {
   StyledButtonImg,
   StyledButton,
-} from "../../../styles/StyledComponents";
+} from "../../../styles/TableStyledComponents";
 
 const ApproveButton = ({ id, handleClick, imageValue }) => {
   const approveImage = require("../../../images/" + imageValue);
