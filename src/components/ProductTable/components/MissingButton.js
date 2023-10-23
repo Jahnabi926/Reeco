@@ -3,11 +3,11 @@ import {
   StyledButton,
 } from "../../../styles/TableStyledComponents";
 
-const MissingButton = ({ id, handleClick, imageValue }) => {
+const MissingButton = ({ product, handleClick, imageValue }) => {
   const missingImage = require("../../../images/" + imageValue);
   return (
     <div>
-      <StyledButton value={id} onClick={() => handleClick(id)}>
+      <StyledButton onClick={() => handleClick(product)}>
         <StyledButtonImg src={missingImage} alt={imageValue} />
       </StyledButton>
     </div>

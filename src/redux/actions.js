@@ -3,17 +3,25 @@ export const approveProduct = (id) => ({
   payload: { id },
 });
 
-export const rejectProduct = (id) => ({
+export const rejectProduct = (id, status) => ({
   type: "REJECT_PRODUCT",
-  payload: { id },
+  payload: { id, status },
 });
 
-export const showModal = () => ({
-  type: "SHOW_MODAL",
+export const showEditModal = () => ({
+  type: "SHOW_EDIT_MODAL",
 });
 
-export const hideModal = () => ({
-  type: "HIDE_MODAL",
+export const hideEditModal = () => ({
+  type: "HIDE_EDIT_MODAL",
+});
+
+export const showMissingModal = () => ({
+  type: "SHOW_MISSING_MODAL",
+});
+
+export const hideMissingModal = () => ({
+  type: "HIDE_MISSING_MODAL",
 });
 
 export const selectProduct = (product) => ({

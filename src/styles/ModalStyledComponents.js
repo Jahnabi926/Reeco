@@ -12,7 +12,7 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const Modal = styled.div`
+export const StyledEditModal = styled.div`
   background-color: #ffffff;
   border: 1px solid #bebebe;
   border-radius: 6px;
@@ -20,6 +20,9 @@ export const Modal = styled.div`
   position: relative;
   height: 300px;
   width: 400px;
+`;
+export const StyledMissingModal = styled(StyledEditModal)`
+  height: 100px;
 `;
 export const ModalClose = styled.span`
   position: absolute;

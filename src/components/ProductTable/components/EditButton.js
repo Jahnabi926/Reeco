@@ -1,5 +1,5 @@
 import { StyledEditButton } from "../../../styles/TableStyledComponents";
-import { showModal, selectProduct } from "../../../redux/actions";
+import { showEditModal, selectProduct } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 
 const EditButton = ({ value, product }) => {
@@ -7,7 +7,7 @@ const EditButton = ({ value, product }) => {
 
   const onEditButtonClick = () => {
     dispatch(selectProduct(product));
-    dispatch(showModal());
+    dispatch(showEditModal());
   };
 
   return (

@@ -1,6 +1,11 @@
 import Table from "../Table";
 import { useSelector, useDispatch } from "react-redux";
-import { approveProduct, rejectProduct } from "../../redux/actions";
+import {
+  approveProduct,
+  rejectProduct,
+  selectProduct,
+  showMissingModal,
+} from "../../redux/actions";
 import { Columns } from "./index.constants";
 
 const ProductTable = () => {
@@ -11,8 +16,10 @@ const ProductTable = () => {
     dispatch(approveProduct(id));
   };
 
-  const handleProductMissing = (id) => {
-    dispatch(rejectProduct(id));
+  const handleProductMissing = (product) => {
+    dispatch(selectProduct(product));
+    dispatch(showMissingModal());
+    dispatch(rejectProduct(product.id));
   };
 
   return (

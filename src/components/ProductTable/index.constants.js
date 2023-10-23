@@ -41,9 +41,9 @@ export const Columns = (handleProductApproval, handleProductMissing) => [
     Cell: ({ cell }) => {
       return (
         <MissingButton
-          id={cell.row.id}
           handleClick={handleProductMissing}
           imageValue={cell.row.values.missing}
+          product={cell.row.original}
         />
       );
     },

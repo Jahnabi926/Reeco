@@ -3,18 +3,31 @@ import EditModal from "./components/ProductTable/components/EditModal";
 import { StyledContainer } from "./styles/TableStyledComponents";
 
 import { useDispatch, useSelector } from "react-redux";
-import { hideModal } from "./redux/actions";
+import { hideEditModal, hideMissingModal } from "./redux/actions";
+import MissingModal from "./components/ProductTable/components/MissingModal";
 
 const App = () => {
-  const showModal = useSelector((state) => state.productTable.showModal);
+  const showEditModal = useSelector(
+    (state) => state.productTable.showEditModal
+  );
+  const showMissingModal = useSelector(
+    (state) => state.productTable.showMissingModal
+  );
   const dispatch = useDispatch();
 
   return (
     <>
-      {showModal && (
+      {showEditModal && (
         <EditModal
           onCloseButtonClick={() => {
-            dispatch(hideModal());
+            dispatch(hideEditModal());
+          }}
+        />
+      )}
+      {showMissingModal && (
+        <MissingModal
+          onCloseButtonClick={() => {
+            dispatch(hideMissingModal());
           }}
         />
       )}

@@ -8,7 +8,7 @@ import {
 } from "../../../redux/actions";
 import { EditModalImage } from "./Images";
 import {
-  Modal,
+  StyledEditModal,
   ModalClose,
   ModalOverlay,
   Product,
@@ -64,7 +64,7 @@ const EditModal = ({ onCloseButtonClick }) => {
   return (
     <ModalOverlay>
       {" "}
-      <Modal ref={modalRef}>
+      <StyledEditModal ref={modalRef}>
         <ModalClose onClick={onCloseButtonClick}>&#10005;</ModalClose>
         {selectedProduct && (
           <>
@@ -109,7 +109,7 @@ const EditModal = ({ onCloseButtonClick }) => {
           <CancelButton onClick={handleCancelChanges}>Cancel</CancelButton>
           <SendButton onClick={handleSendChanges}>Send</SendButton>
         </ActionButtons>
-      </Modal>
+      </StyledEditModal>
     </ModalOverlay>
   );
 };

@@ -2,7 +2,8 @@ import mockData from "../MOCK_DATA.json";
 
 const initialState = {
   data: mockData,
-  showModal: false,
+  showEditModal: false,
+  showMissingModal: false,
   selectedProduct: null,
 };
 
@@ -30,22 +31,36 @@ const reducer = (state = initialState, action) => {
           if (item.id == action.payload.id) {
             return {
               ...item,
-              status: "Missing",
+              status: action.payload.status,
             };
           }
           return item;
         }),
       };
-    case "SHOW_MODAL":
+    case "SHOW_EDIT_MODAL":
       return {
         ...state,
-        showModal: true,
+        showEditModal: true,
       };
-    case "HIDE_MODAL":
+
+    case "HIDE_EDIT_MODAL":
       return {
         ...state,
-        showModal: false,
+        showEditModal: false,
       };
+
+    case "SHOW_MISSING_MODAL":
+      return {
+        ...state,
+        showMissingModal: true,
+      };
+
+    case "HIDE_MISSING_MODAL":
+      return {
+        ...state,
+        showMissingModal: false,
+      };
+
     case "SELECT_PRODUCT":
       return {
         ...state,
@@ -72,24 +87,40 @@ const reducer = (state = initialState, action) => {
         },
       };
     case "SEND_CHANGES":
-      return {
-        ...state,
-        data: state.data.map((item) => {
-          // eslint-disable-next-line eqeqeq
-          if (item.id == state.selectedProduct.id) {
-            return {
-              ...state.selectedProduct,
-            };
-          }
-          return item;
-        }),
-        showModal: false,
-      };
+      if (state.showEditModal) {
+        return {
+          ...state,
+          data: state.data.map((item) => {
+            // eslint-disable-next-line eqeqeq
+            if (item.id == state.selectedProduct.id) {
+              return {
+                ...state.selectedProduct,
+              };
+            }
+            return item;
+          }),
+          showEditModal: false,
+        };
+      } else if (state.showMissingModal) {
+        return {
+          ...state,
+          showMissingModal: false,
+        };
+      }
+      return state;
     case "CANCEL_CHANGES":
-      return {
-        ...state,
-        showModal: false,
-      };
+      if (state.showEditModal) {
+        return {
+          ...state,
+          showEditModal: false,
+        };
+      } else if (state.showMissingModal) {
+        return {
+          ...state,
+          showMissingModal: false,
+        };
+      }
+      return state;
     default:
       return state;
   }
