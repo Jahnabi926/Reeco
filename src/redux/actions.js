@@ -46,3 +46,8 @@ export const sendChanges = () => ({
 export const cancelChanges = () => ({
   type: "CANCEL_CHANGES",
 });
+
+export const addProduct = (product) => ({
+  type: "ADD_PRODUCT",
+  payload: product,
+});

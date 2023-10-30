@@ -121,6 +121,11 @@ const reducer = (state = initialState, action) => {
         };
       }
       return state;
+    case "ADD_PRODUCT":
+      return {
+        ...state,
+        data: [...state.data, action.payload],
+      };
     default:
       return state;
   }

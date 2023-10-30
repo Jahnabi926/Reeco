@@ -54,7 +54,6 @@ const MissingModal = ({ onCloseButtonClick }) => {
           <>
             <div>
               <b>Missing Product</b>
-
               <p>Is "{selectedProduct.product_name}" urgent ?</p>
             </div>
           </>
