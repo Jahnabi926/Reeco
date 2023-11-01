@@ -51,3 +51,8 @@ export const addProduct = (product) => ({
   type: "ADD_PRODUCT",
   payload: product,
 });
+
+export const searchProduct = (searchQuery) => ({
+  type: "SEARCH_PRODUCT",
+  payload: searchQuery,
+});

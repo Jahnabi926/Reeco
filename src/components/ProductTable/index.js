@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   approveProduct,
   rejectProduct,
+  searchProduct,
   selectProduct,
   showMissingModal,
 } from "../../redux/actions";
@@ -14,11 +15,18 @@ import {
   ProductTableContainer,
   AddItemButton,
 } from "../../styles/NewItemStyledComponent";
+import {
+  SearchContainer,
+  SearchInput,
+} from "../../styles/SearchInputStyledComponent";
 
 const ProductTable = () => {
   const formRef = useRef(null);
   const [isAddItemClicked, setIsAddItemClicked] = useState(false);
-  const tableData = useSelector((state) => state.productTable);
+  const filteredProducts = useSelector(
+    (state) => state.productTable.filteredProducts
+  );
+  const allProducts = useSelector((state) => state.productTable.data);
 
   const dispatch = useDispatch();
 
@@ -36,6 +44,11 @@ const ProductTable = () => {
     setIsAddItemClicked(false);
   };
 
+  const handleSearch = (e) => {
+    const searchQuery = e.target.value;
+    dispatch(searchProduct(searchQuery));
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (formRef.current && !formRef.current.contains(event.target)) {
@@ -51,6 +64,13 @@ const ProductTable = () => {
 
   return (
     <ProductTableContainer>
+      <SearchContainer>
+        <SearchInput
+          type="text"
+          placeholder="Search products..."
+          onChange={handleSearch}
+        />
+      </SearchContainer>
       <AddItemButton onClick={() => setIsAddItemClicked(true)}>
         Add Item
       </AddItemButton>
@@ -62,7 +82,7 @@ const ProductTable = () => {
       )}
       <Table
         columns={Columns(handleProductApproval, handleProductMissing)}
-        data={tableData.data}
+        data={filteredProducts.length > 0 ? filteredProducts : allProducts}
       />
     </ProductTableContainer>
   );

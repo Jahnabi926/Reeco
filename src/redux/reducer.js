@@ -5,6 +5,7 @@ const initialState = {
   showEditModal: false,
   showMissingModal: false,
   selectedProduct: null,
+  filteredProducts: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,7 @@ const reducer = (state = initialState, action) => {
           return item;
         }),
       };
+
     case "REJECT_PRODUCT":
       return {
         ...state,
@@ -37,6 +39,7 @@ const reducer = (state = initialState, action) => {
           return item;
         }),
       };
+
     case "SHOW_EDIT_MODAL":
       return {
         ...state,
@@ -66,6 +69,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         selectedProduct: action.payload,
       };
+
     case "INCREASE_QUANTITY":
       return {
         ...state,
@@ -76,6 +80,7 @@ const reducer = (state = initialState, action) => {
             state.selectedProduct.price * (state.selectedProduct.quantity + 1),
         },
       };
+
     case "DECREASE_QUANTITY":
       return {
         ...state,
@@ -86,6 +91,7 @@ const reducer = (state = initialState, action) => {
             state.selectedProduct.price * (state.selectedProduct.quantity - 1),
         },
       };
+
     case "SEND_CHANGES":
       if (state.showEditModal) {
         return {
@@ -108,6 +114,7 @@ const reducer = (state = initialState, action) => {
         };
       }
       return state;
+
     case "CANCEL_CHANGES":
       if (state.showEditModal) {
         return {
@@ -121,11 +128,23 @@ const reducer = (state = initialState, action) => {
         };
       }
       return state;
+
     case "ADD_PRODUCT":
       return {
         ...state,
         data: [...state.data, action.payload],
       };
+
+    case "SEARCH_PRODUCT":
+      const searchQuery = action.payload.toLowerCase();
+      const filteredProducts = state.data.filter((product) =>
+        product.product_name.toLowerCase().includes(searchQuery)
+      );
+      return {
+        ...state,
+        filteredProducts,
+      };
+
     default:
       return state;
   }
